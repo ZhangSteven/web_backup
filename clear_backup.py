@@ -33,7 +33,7 @@ if __name__ == '__main__':
 	
 	logger.info('Start clearing')
 	for fn in filter(olderThanNdays, 
-				map(toFullPath, getFiles('/my_stuff/backup'))):
+				map(toFullPath, getFiles(get_backup_directory()))):
 
 		try:
 			os.remove(fn)
