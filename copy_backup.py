@@ -1,6 +1,6 @@
 # coding=utf-8
 # 
-# Copy the backup files over to the backup web server
+# Copy the backup files over from the production web server
 
 from utils.file import getFiles
 from web_backup.utility import get_backup_directory

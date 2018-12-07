@@ -45,3 +45,21 @@ def get_backup_directory():
 def get_n_days():
 	global config
 	return int(config['clear']['days'])
+
+
+
+def get_remote_host():
+	global config
+	return config['webserver']['host']
+
+
+
+def get_user():
+	global config
+	return config['webserver']['user']
+
+
+
+def get_password():
+	global config
+	return config['webserver']['password']
