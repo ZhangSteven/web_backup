@@ -13,17 +13,6 @@ logger = logging.getLogger(__name__)
 
 
 
-def get_file_list(fn):
-	"""
-	[String] fn => [List] file names
-
-	fn : the file containing the list files copied before
-	"""
-	with open(fn) as f:
-            return [line.rstrip('\n') for line in f]
-
-
-
 def withinAweek(fn):
     """
     [String] fn => [Bool] file last modified date within one week
