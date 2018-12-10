@@ -5,7 +5,8 @@ Performs the following tasks:
 1. Copy the backup files (web and sql dump) to the backup server: 
     copy_backup.py
 2. Delete the old backup files: clear_backup.py
-3. Restore website based on a date.
+3. Restore website from the most recent backup file: restore_backup.py
 
 On the production web server, (1) and (2) are performed on a periodic basis.
-On the backup web server, (2) is performed on a periodic basis, (3) is on demand.  
+On the backup web server, (2) is performed on a periodic basis, (3) is on 
+demand.  
