@@ -5,7 +5,7 @@
 from utils.file import getFiles
 from web_backup.utility import get_backup_directory, get_n_days
 from os.path import getmtime, join
-import datetime
+from datetime import datetime, timedelta
 import logging
 logger = logging.getLogger(__name__)
 
@@ -13,11 +13,12 @@ logger = logging.getLogger(__name__)
 
 def olderThanNdays(fn, nDays=get_n_days()):
     """
-    [String] fn => [Bool] file last modified date larger than N days
+    [String] fn => [Bool] file date older than N days
     """
-    return datetime.datetime.now() - \
-            datetime.datetime.fromtimestamp(getmtime(fn)) \
-            > datetime.timedelta(days=nDays)
+    dateString = lambda fn: fn[3:11] if fn.startswith('db') else fn[4:12]
+    fnToDate = lambda fn: datetime.strptime(dateString(fn), '%m-%d-%y')
+
+    return datetime.now() - fnToDate(fn) > timedelta(days=nDays)
 
 
 
@@ -35,10 +36,22 @@ if __name__ == '__main__':
             disable_existing_loggers=False)
 	
     logger.info('Start clearing')
+
+    """
     for fn in filter(olderThanNdays, 
 		map(toFullPath, getFiles(get_backup_directory()))):
         try:
             os.remove(fn)
             logger.debug('removed {0}'.format(fn))
+        except:
+            logger.exception()
+    """
+
+    for fn in map(toFullPath
+                 , filter(olderThanNdays
+                         , getFiles(get_backup_directory()))):
+        try:
+            print('deleting {0}'.format(fn))
+            os.remove(fn)
         except:
             logger.exception()
