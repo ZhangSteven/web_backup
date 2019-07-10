@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+#
 # coding=utf-8
 # 
 # Copy the backup files over from the production web server
