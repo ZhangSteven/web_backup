@@ -1,12 +1,11 @@
 # web_backup
 
-Performs the following tasks:
+# copy_backup.py
+1. Copy backup files from the production web server.
+2. Send notification email about the copy result.
 
-1. Copy the backup files (web and sql dump) to the backup server: 
-    copy_backup.py
-2. Delete the old backup files: clear_backup.py
-3. Restore website from the most recent backup file: restore_backup.py
+# clear_backup.py
+1. Delete backup files that are too old.
 
-On the production web server, (1) and (2) are performed on a periodic basis.
-On the backup web server, (2) is performed on a periodic basis, (3) is on 
-demand.  
+# restore_backup.py
+1. Create a restore script and run it, to restore website from the most recent backup files.

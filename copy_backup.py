@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-#
 # coding=utf-8
 # 
 # Copy the backup files over from the production web server
@@ -119,7 +117,8 @@ def deliverResult(success, failure):
 
 if __name__ == '__main__':
     import logging.config
-    logging.config.fileConfig('logging.config'
+    from os.path import join
+    logging.config.fileConfig(join(get_current_path(), 'logging.config')
                              , disable_existing_loggers=False)
 	
     logger.info('Start copy over')

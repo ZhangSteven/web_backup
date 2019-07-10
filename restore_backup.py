@@ -17,9 +17,8 @@ def mostRecentWebBackup():
     """
     return: [String] the file name of the most recent web backup
     """
-    return takeFirst(sorted(
-		        filter(webBackup, getFiles(get_backup_directory()))
-                        , key=dateFromFilename, reverse=True))
+    return sorted(filter(webBackup, getFiles(get_backup_directory()))
+                 , key=dateFromFilename, reverse=True)[0]
 
 
 
@@ -27,18 +26,9 @@ def mostRecentSqlBackup():
     """
     return: [String] the file name of the most recent database backup
     """
-    return takeFirst(sorted(
-		        filter(sqlBackup, getFiles(get_backup_directory()))
-                        , key=dateFromFilename, reverse=True))
+    return sorted(filter(sqlBackup, getFiles(get_backup_directory()))
+                 , key=dateFromFilename, reverse=True)[0]
 
-
-
-def takeFirst(L):
-    """
-    [List] L => first element in the list
-    """
-    return L[0]
-    
 
 
 def dateFromFilename(fn):

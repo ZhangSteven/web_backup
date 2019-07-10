@@ -22,7 +22,7 @@ def _load_config(config_file='web.config'):
 	Read the config file, convert it to a config object.
 	"""
 	cfg = configparser.ConfigParser()
-	cfg.read(config_file)
+	cfg.read(os.path.join(get_current_path(), config_file))
 	return cfg
 
 

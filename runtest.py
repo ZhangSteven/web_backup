@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-#
 # coding=utf-8
 # 
 # Test how to run a python script directly from command line.
@@ -32,8 +30,8 @@ if __name__ == '__main__':
 
     Check out /my_stuff/scripts/copy_back.sh
     """
-
-    logging.config.fileConfig('logging.config'
+    from os.path import join
+    logging.config.fileConfig(join(get_current_path(), 'logging.config')
                              , disable_existing_loggers=False)
     print('run test')
     logger.info('Start copy over')
