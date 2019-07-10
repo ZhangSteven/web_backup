@@ -8,6 +8,7 @@
 # production server.
 
 from utils.file import getFiles
+from utils.mail import sendMail
 from web_backup.utility import get_backup_directory, get_user, \
         get_password, get_remote_host, get_current_path, \
         getMailSender, getMailRecipients, getMailServer, \
@@ -88,7 +89,7 @@ def doCopy():
 
 
 
-def sendMail(success, failure):
+def deliverResult(success, failure):
     """
     [List] success, [List] failure => send email notification about the
     status.
@@ -122,4 +123,5 @@ if __name__ == '__main__':
                              , disable_existing_loggers=False)
 	
     logger.info('Start copy over')
-    sendMail(*doCopy())
+    deliverResult(*doCopy()) # unpack the result of doCopy(), then pass to
+                             # deliver result
