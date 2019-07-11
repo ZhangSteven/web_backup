@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-#
 # coding=utf-8
 # 
 # Test how to run a python script directly from command line.
