@@ -36,5 +36,5 @@ if __name__ == '__main__':
     logging.config.fileConfig(join(get_current_path(), 'logging.config')
                              , disable_existing_loggers=False)
     print('run test')
-    logger.info('Start copy over')
+    logger.info('Start run test')
 
